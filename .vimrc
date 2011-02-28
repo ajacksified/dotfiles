@@ -26,7 +26,6 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set showmatch
-set autochdir
 set cul
 set cursorcolumn
 set scrolloff=10
