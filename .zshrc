@@ -8,6 +8,7 @@ setopt CORRECT
 setopt CORRECT_ALL
 setopt MENU_COMPLETE
 
-PS1="%{$fg[green]%}[%t] %{$reset_color$fg[magenta]%}Michael-> %{$reset_color$fg[yellow]%}%~>%{$reset_color%}"
+PS1="%{$reset_color$fg[magenta]%}Michael-> %{$reset_color$fg[yellow]%}%~>%{$reset_color%}"
+RPS1="%{$fg[green]%}[%t]%{$reset_color%}"
 
 "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
