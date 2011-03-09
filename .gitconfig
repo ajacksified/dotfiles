@@ -12,3 +12,5 @@
 [user]
 	name = Michael Joseph Kramer
 	email = michael.kramer@live.com
+[core]
+	editor = /usr/bin/vim
