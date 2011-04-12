@@ -37,6 +37,7 @@ set ruler
 set incsearch
 set ignorecase
 set smartcase
+set visualbell 
 
 " Path/File Expansion
 set wildmode=list:longest
