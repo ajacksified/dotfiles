@@ -22,6 +22,9 @@ setopt HIST_FIND_NO_DUPS # Ignore duplicates
 setopt NOBEEP # I hate the beep
 setopt AUTO_CD # Automatically change directory without typing "cd"
 
+# Node Path
+export NODE_PATH=/usr/local/lib/node_modules
+
 # Prompt -> "Michael-> path>"
 PS1="%{$reset_color$fg[cyan]%}Michael-> %{$reset_color$fg[yellow]%}%~>%{$reset_color%}"
 
