@@ -7,10 +7,27 @@
   type = cat-file -t
   dump = cat-file -p
   last = cat-file commit HEAD
+  pushom = push origin master
+  pullom = pull origin master
 [color]
   ui = true
 [user]
-	name = Michael Joseph Kramer
-	email = michael.kramer@live.com
+	name = 
+	email = 
 [core]
 	editor = /usr/bin/vim
+	excludesfile = ~/.gitignore_global
+[github]
+	user = 
+  token = 
+[merge]
+	keepBackup = false;
+	tool = p4merge
+[mergetool "p4merge"]
+	cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+	keepTemporaries = false
+	trustExitCode = false
+	keepBackup = false
+[diff]
+	external = p4diff
+
