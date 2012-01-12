@@ -102,3 +102,4 @@ autocmd filetype css setlocal equalprg=csstidy\ -\ --silent=true
 "Display extra whitespace
 set list listchars=tab:»·,trail:·
 
+set shell=bash
