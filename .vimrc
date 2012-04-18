@@ -13,7 +13,7 @@ imap ;; <Esc>
 "Remap F2 to NERDTreeToggle
 map <silent> <F2> :NERDTreeToggle<CR>
 
-colorscheme solarized
+colorscheme solarized-brown
 set background=dark
 
 syntax enable 
@@ -102,4 +102,5 @@ autocmd filetype css setlocal equalprg=csstidy\ -\ --silent=true
 "Display extra whitespace
 set list listchars=tab:»·,trail:·
 
+set directory=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
 set shell=bash
