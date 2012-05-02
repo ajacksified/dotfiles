@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/vim-colors-solarized-brown"]
 	path = .vim/bundle/vim-colors-solarized-brown
 	url = git@github.com:ajacksified/vim-colors-solarized-brown.git
+[submodule ".vim/bundle/vim-lua-ftplugin"]
+	path = .vim/bundle/vim-lua-ftplugin
+	url = https://github.com/xolox/vim-lua-ftplugin.git
