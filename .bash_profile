@@ -2,7 +2,8 @@
 ### Aliases ###
 ###############
 
-. /usr/share/autojump/autojump.bash
+source /usr/share/autojump/autojump.bash
+source /etc/bash_completion.d/git
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin~/bin:$PATH
 #export EDITOR='mvim'
@@ -13,7 +14,7 @@ PS1='\u@\h:\w\$'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
-export PS1='\[\033[01;34m\]\u:\[\033[01;32m\]\W\[\033[01;33m\]\[\033[01;31m\] ⚡ \[\033[00m\]'
+export PS1='\[\033[01;34m\]\u:\[\033[01;32m\]\W\[\033[01;33m\]$(__git_ps1 ":%s")\[\033[01;31m\] ⚡ \[\033[00m\]'
 
 l () {
   ls $1
