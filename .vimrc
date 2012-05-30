@@ -1,9 +1,6 @@
 "VIM compatibility
 set nocompatible
 
-"Font
-set guifont=Inconsolata\ 10.
-
 "Pathogen Configuration
 filetype off
 call pathogen#helptags()

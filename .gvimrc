@@ -2,7 +2,7 @@
 if has('mac')
   set guifont=Consolas\ Bold:h18
 elseif has('unix')
-  set guifont=Inconsolata\ Bold\ 14
+  set guifont=Inconsolata\ Bold\ 10
 elseif has('win32')
   set guifont=Consolas:h14:b:cANSI
 endif
