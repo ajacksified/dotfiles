@@ -1,6 +1,9 @@
 "VIM compatibility
 set nocompatible
 
+"Font
+set guifont=Inconsolata\ 10.
+
 "Pathogen Configuration
 filetype off
 call pathogen#helptags()
@@ -13,7 +16,7 @@ imap ;; <Esc>
 "Remap F2 to NERDTreeToggle
 map <silent> <F2> :NERDTreeToggle<CR>
 
-colorscheme solarized-brown
+colorscheme solarized
 set background=dark
 
 syntax enable 
@@ -103,4 +106,4 @@ autocmd filetype css setlocal equalprg=csstidy\ -\ --silent=true
 set list listchars=tab:»·,trail:·
 
 set directory=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
-set shell=bash
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
