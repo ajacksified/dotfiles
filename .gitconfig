@@ -16,7 +16,7 @@
 	email = 
 [core]
 	editor = /usr/bin/vim
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore
 [github]
 	user = 
   token = 
