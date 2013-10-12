@@ -5,29 +5,19 @@
 export PATH=/usr/local/share/python:$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin~/bin:$PATH
 export NODE_PATH=/usr/local/lib/node_modules
 
-export EDITOR='mvim'
-
-source ~/.rvm/scripts/rvm
-source /usr/local/Cellar/git/1.7.12/share/git-core/contrib/completion/git-prompt.sh
-
-color_promt=yes
+export EDITOR='vim'
 
 PS1='\u@\h:\w\$'
-if [ -f `brew --prefix`/etc/autojump ]; then
-  . `brew --prefix`/etc/autojump
-fi
 
 SHELL=`brew --prefix`/bin/bash
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
-
+source /usr/local/opt/autojump/etc/autojump.bash
 
 if [ -f `brew --prefix`/etc/bash_completion ] && [ "$TERM" != 'dumb' ] && [ -n "$BASH" ] && [ -n "$PS1" ]; then
   source `brew --prefix`/etc/bash_completion
   GIT_PS1_SHOWDIRTYSTATE=true
   export PS1='\[\033[01;34m\]\u:\[\033[01;32m\]\W\[\033[01;33m\]$(__git_ps1 ":%s")\[\033[01;31m\] ⇰ \[\033[00m\]'
-fi 
-
+fi
 
 l () {
   ls $1
@@ -67,3 +57,5 @@ function apath()
         PATH=$1:$PATH
     fi
 }
+
+eval "$(rbenv init -)"

@@ -2,3 +2,7 @@
 coffee=.coffee
 --type-set
 sass=.sass,.scss,.less
+--type-set
+mustache=.mustache,.handlebars,.hbs
+--type-set
+markdown=.md,.markdown
