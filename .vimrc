@@ -7,14 +7,8 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype indent plugin on
 
-"Remap ;; to ESC
-imap ;; <Esc> 
-
 "Remap F2 to NERDTreeToggle
 map <silent> <F2> :NERDTreeToggle<CR>
-
-"colorscheme solarized
-"set background=dark
 
 syntax enable 
 
@@ -90,7 +84,6 @@ au InsertLeave * let &updatetime=updaterestore
 "awesome mappings
 map H ^
 map L $
-inoremap kj <Esc>
 nnoremap ; :
 
 "Stupid f1 key"
@@ -103,5 +96,15 @@ autocmd filetype css setlocal equalprg=csstidy\ -\ --silent=true
 set list listchars=tab:»·,trail:·
 
 set directory=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
+
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 highlight CursorColumn ctermbg=Black
+
+" Use Ag over Grep if available
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  " let g:ctrlp_use_caching = 0
+endif
