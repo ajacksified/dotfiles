@@ -13,8 +13,8 @@ imap ;; <Esc>
 "Remap F2 to NERDTreeToggle
 map <silent> <F2> :NERDTreeToggle<CR>
 
-colorscheme solarized
-set background=dark
+"colorscheme solarized
+"set background=dark
 
 syntax enable 
 
@@ -104,3 +104,4 @@ set list listchars=tab:»·,trail:·
 
 set directory=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+highlight CursorColumn ctermbg=Black
