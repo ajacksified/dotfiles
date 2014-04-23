@@ -3,6 +3,7 @@
 ###############
 
 SHELL=`brew --prefix`/bin/bash
+set -o vi
 
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export NODE_PATH=/usr/local/lib/node_modules
@@ -27,12 +28,14 @@ if tput setaf 1 &> /dev/null; then
     GREEN=$(tput setaf 190)
     PURPLE=$(tput setaf 141)
     WHITE=$(tput setaf 0)
+    BLUE=$(tput setaf 74)
   else
     MAGENTA=$(tput setaf 5)
-    ORANGE=$(tput setaf 4)
+    ORANGE=$(tput setaf 3)
     GREEN=$(tput setaf 2)
     PURPLE=$(tput setaf 1)
     WHITE=$(tput setaf 7)
+    BLUE=$(tput setaf 4)
   fi
   BOLD=$(tput bold)
   RESET=$(tput sgr0)
@@ -62,7 +65,7 @@ function parse_git_dirty() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-export PS1="\n\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\H \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\[$WHITE\][\T] \$ \[$RESET\]"
+export PS1="\n\[$BOLD$MAGENTA\]\u \[$RESET\]at \[$BOLD$ORANGE\]\H \[$RESET\]in \[$BOLD$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$BOLD$PURPLE\]\$(parse_git_branch)\[$RESET\]\n\[$BLUE\][\T] $RESET\$ "
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 # Detect which `ls` flavor is in use
@@ -96,4 +99,22 @@ if rbenv --version >/dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
 
-source ~/.bash_aliases
+md() {
+  if mount | grep reddit &> /dev/null
+  then
+    echo "reddit VM already mounted, not mounting."
+  else
+    echo "Mounting"
+    sshfs reddit.local: /Users/ajacksified/projects/reddit.local
+  fi
+}
+
+umd(){
+  if mount | grep reddit &> /dev/null
+  then
+    echo "Unmounting"
+    umount -f /Users/ajacksified/projects/reddit.local
+  else
+    echo "reddit VM not mounted, not unmounting."
+  fi
+}
