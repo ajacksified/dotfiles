@@ -2,7 +2,6 @@
 ### Aliases ###
 ###############
 
-SHELL=`brew --prefix`/bin/bash
 set -o vi
 
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
@@ -92,22 +91,7 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 alias c='clear'
 alias gs='git status'
-alias or='openresty -p `pwd`/ -c conf/nginx.conf'
 
-if rbenv --version >/dev/null 2>&1; then
-  eval "$(rbenv init -)"
-fi
-
-create_vm(){
-  PROVIDER=''
-
-  if vagrant plugin list | grep vmware &> /dev/null
-  then
-    PROVIDER='--provider=vmware_fusion'
-  fi
-
-  wget https://raw.githubusercontent.com/ajacksified/dotfiles/vagrant/Vagrantfile
-  wget https://raw.githubusercontent.com/ajacksified/dotfiles/vagrant/install-ubuntu.sh
-  vagrant up $PROVIDER
-}
+source /etc/bash_completion
+source /usr/share/autojump/autojump.bash
 
