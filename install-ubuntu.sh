@@ -1,13 +1,6 @@
 #!/bin/bash -e
 set -e
 
-if [[ $EUID -ne 0 ]]; then
-    echo "ERROR: Must be run with root privileges."
-    exit 1
-fi
-
-sudo su vagrant
-
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get update
@@ -15,19 +8,20 @@ apt-get upgrade -y
 
 apt-get install git tmux vim autojump bash-completion ack-grep -y
 
-mkdir projects
-cd projects
+mkdir /home/vagrant/projects
+cd /home/vagrant/projects
 
 git clone https://github.com/ajacksified/dotfiles.git
 
 cd dotfiles
-git checkout ubuntu
+git checkout vagrant
 
 git submodule init
 git submodule update
 
-shopt -s dotglob
+sudo chown -R vagrant:vagrant /home/vagrant/projects
 
-cp -r `ls -a | egrep -v '^(iterm-colors.itermcolors|.git|README.md|.gitmodules)$'` ~/
+cp -r `ls -a | egrep -v '^(.|..|iterm-colors.itermcolors|.git|README.md|.gitmodules|.bashrc)$'` /home/vagrant/
 
-shopt -u dotglob
+echo "source ~/.bash_profile" >> ~/.bashrc
+

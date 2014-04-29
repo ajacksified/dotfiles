@@ -9,12 +9,6 @@ export NODE_PATH=/usr/local/lib/node_modules
 
 export EDITOR='vim'
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
-
-source /usr/local/opt/autojump/etc/autojump.bash
-
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
   export TERM=gnome-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
