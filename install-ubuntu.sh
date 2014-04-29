@@ -23,5 +23,5 @@ sudo chown -R vagrant:vagrant /home/vagrant/projects
 
 cp -r `ls -a | egrep -v '^(.|..|iterm-colors.itermcolors|.git|README.md|.gitmodules|.bashrc)$'` /home/vagrant/
 
-echo "source ~/.bash_profile" >> ~/.bashrc
+echo "source ~/.bash_profile" >> /home/vagrant/.bashrc
 
