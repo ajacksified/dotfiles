@@ -28,6 +28,6 @@ git submodule update
 
 shopt -s dotglob
 
-cp -r !(.git|README*|iterm*) ~/
+cp -r `ls -a | egrep -v '^(iterm-colors.itermcolors|.git|README.md|.gitmodules)$'` ~/
 
 shopt -u dotglob
