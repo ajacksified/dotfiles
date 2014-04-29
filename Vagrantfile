@@ -16,5 +16,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Default value: false
   config.ssh.forward_agent = true
 
-  config.vm.provision :shell, :path => "https://raw.githubusercontent.com/ajacksified/dotfiles/vagrant/install-ubuntu.sh"
+  $script = <<SCRIPT
+chmod u+x /vagrant/install-ubuntu.sh
+sudo -u vagrant /vagrant/install-ubuntu.sh
+SCRIPT
+
+  config.vm.provision :shell, :inline => $script
 end

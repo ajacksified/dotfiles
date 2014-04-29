@@ -1,3 +1,4 @@
+#!/bin/bash -e
 set -e
 
 if [[ $EUID -ne 0 ]]; then
