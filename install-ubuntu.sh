@@ -5,13 +5,14 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-APTITUDE_OPTIONS="-y"
+sudo su vagrant
+
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get update
-apt-get upgrade
+apt-get upgrade -y
 
-apt-get install git tmux vim autojump bash-completion ack-grep
+apt-get install git tmux vim autojump bash-completion ack-grep -y
 
 mkdir projects
 cd projects
@@ -19,7 +20,7 @@ cd projects
 git clone https://github.com/ajacksified/dotfiles.git
 
 cd dotfiles
-git co ubuntu
+git checkout ubuntu
 
 git submodule init
 git submodule update
