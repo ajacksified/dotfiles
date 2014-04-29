@@ -109,5 +109,8 @@ create_vm(){
   wget https://raw.githubusercontent.com/ajacksified/dotfiles/vagrant/Vagrantfile
   wget https://raw.githubusercontent.com/ajacksified/dotfiles/vagrant/install-ubuntu.sh
   vagrant up $PROVIDER
+
+  DIRECTORY_NAME=${PWD##*/}
+  vagrant ssh-config | sed "s/default/$DIRECTORY_NAME/" >> ~/.ssh/config
 }
 
