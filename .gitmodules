@@ -1,18 +1,9 @@
 [submodule ".vim/bundle/nerdtree"]
   path = .vim/bundle/nerdtree
   url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/vim-rails"]
-  path = .vim/bundle/vim-rails
-  url = https://github.com/tpope/vim-rails.git
-[submodule ".vim/bundle/vim-cucumber"]
-  path = .vim/bundle/vim-cucumber
-  url = http://github.com/tpope/vim-cucumber.git
 [submodule ".vim/bundle/tabular.vim"]
   path = .vim/bundle/tabular.vim
   url = https://github.com/godlygeek/tabular.git
-[submodule ".vim/bundle/vim-coffee-script"]
-  path = .vim/bundle/vim-coffee-script
-  url = https://github.com/kchmck/vim-coffee-script.git
 [submodule ".vim/bundle/mustache"]
   path = .vim/bundle/mustache
   url = https://github.com/juvenn/mustache.vim.git
@@ -22,9 +13,6 @@
 [submodule ".vim/bundle/vim-less"]
 	path = .vim/bundle/vim-less
 	url = https://github.com/groenewege/vim-less.git
-[submodule ".vim/bundle/vim-powerline"]
-	path = .vim/bundle/vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule ".vim/bundle/vim-colors-solarized-brown"]
 	path = .vim/bundle/vim-colors-solarized-brown
 	url = https://github.com/ajacksified/vim-colors-solarized-brown.git
@@ -49,18 +37,9 @@
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
 	url = https://github.com/ajacksified/vim-markdown.git
-[submodule ".vim/bundle/vim-misc"]
-	path = .vim/bundle/vim-misc
-	url = https://github.com/xolox/vim-misc.git
 [submodule ".vim/bundle/ctrlp"]
 	path = .vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule ".vim/bundle/vim-sneak"]
-	path = .vim/bundle/vim-sneak
-	url = git@github.com:justinmk/vim-sneak.git
-[submodule ".vim/bundle/vim-repeat"]
-	path = .vim/bundle/vim-repeat
-	url = git@github.com:tpope/vim-repeat.git
 [submodule ".vim/bundle/lightline.vim"]
 	path = .vim/bundle/lightline.vim
-	url = git@github.com:itchyny/lightline.vim.git
+	url = https://github.com/itchyny/lightline.vim.git
