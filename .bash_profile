@@ -97,7 +97,6 @@ create_vm(){
   fi
 
   wget https://raw.githubusercontent.com/ajacksified/dotfiles/vagrant/Vagrantfile
-  wget https://raw.githubusercontent.com/ajacksified/dotfiles/vagrant/install-ubuntu.sh
   vagrant up $PROVIDER
 
   DIRECTORY_NAME=${PWD##*/}
