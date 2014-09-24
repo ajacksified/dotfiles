@@ -5,18 +5,18 @@
 	<key>Ansi 0 Color</key>
 	<dict>
 		<key>Blue Component</key>
-		<real>0.45701357466063353</real>
+		<real>0.4570135772228241</real>
 		<key>Green Component</key>
-		<real>0.45701357466063353</real>
+		<real>0.4570135772228241</real>
 		<key>Red Component</key>
-		<real>0.45701357466063353</real>
+		<real>0.4570135772228241</real>
 	</dict>
 	<key>Ansi 1 Color</key>
 	<dict>
 		<key>Blue Component</key>
-		<real>0.33780063827491719</real>
+		<real>0.33780065178871155</real>
 		<key>Green Component</key>
-		<real>0.32702783154188475</real>
+		<real>0.327027827501297</real>
 		<key>Red Component</key>
 		<real>0.91372549533843994</real>
 	</dict>
@@ -43,9 +43,9 @@
 		<key>Blue Component</key>
 		<real>0.9843137264251709</real>
 		<key>Green Component</key>
-		<real>0.72803271426900973</real>
+		<real>0.72803270816802979</real>
 		<key>Red Component</key>
-		<real>0.69751572527909178</real>
+		<real>0.69751572608947754</real>
 	</dict>
 	<key>Ansi 13 Color</key>
 	<dict>
@@ -95,11 +95,11 @@
 	<key>Ansi 4 Color</key>
 	<dict>
 		<key>Blue Component</key>
-		<real>0.90497737556561086</real>
+		<real>0.90497738122940063</real>
 		<key>Green Component</key>
-		<real>0.34296282552554169</real>
+		<real>0.3429628312587738</real>
 		<key>Red Component</key>
-		<real>0.3282091727103375</real>
+		<real>0.32820916175842285</real>
 	</dict>
 	<key>Ansi 5 Color</key>
 	<dict>
@@ -131,18 +131,18 @@
 	<key>Ansi 8 Color</key>
 	<dict>
 		<key>Blue Component</key>
-		<real>0.36199095022624439</real>
+		<real>0.36199095845222473</real>
 		<key>Green Component</key>
-		<real>0.36199095022624439</real>
+		<real>0.36199095845222473</real>
 		<key>Red Component</key>
-		<real>0.36199095022624439</real>
+		<real>0.36199095845222473</real>
 	</dict>
 	<key>Ansi 9 Color</key>
 	<dict>
 		<key>Blue Component</key>
-		<real>0.27560861398414582</real>
+		<real>0.2756085991859436</real>
 		<key>Green Component</key>
-		<real>0.3216924642308906</real>
+		<real>0.32169246673583984</real>
 		<key>Red Component</key>
 		<real>0.97647058963775635</real>
 	</dict>

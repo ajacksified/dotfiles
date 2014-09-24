@@ -10,16 +10,14 @@ export NODE_PATH=/usr/local/lib/node_modules
 
 export EDITOR='vim'
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
-
-source /usr/local/opt/autojump/etc/autojump.bash
-
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
   export TERM=gnome-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
   export TERM=xterm-256color
+fi
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
 fi
 
 if tput setaf 1 &> /dev/null; then
@@ -67,7 +65,7 @@ function parse_git_dirty() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-export PS1="\n\[$BOLD$MAGENTA\]\u \[$RESET\]at \[$BOLD$ORANGE\]\H \[$RESET\]in \[$BOLD$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$BOLD$PURPLE\]\$(parse_git_branch)\[$RESET\]\n\[$BLUE\][\T] $RESET\$ "
+export PS1="\[$BLUE\][\T] \[$BOLD$MAGENTA\]\u\[$RESET\] \[$BOLD$ORANGE\]\H\[$RESET\] \[$BOLD$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$BOLD$PURPLE\]\$(parse_git_branch)$RESET \$ "
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 # Detect which `ls` flavor is in use
@@ -77,16 +75,48 @@ else # OS X `ls`
   colorflag="-G"
 fi
 
+# List all files colorized in long format
+alias l="ls -l ${colorflag}"
+
+# List all files colorized in long format, including dot files
+alias la="ls -la ${colorflag}"
+
+# List only directories
+alias lsd='ls -l ${colorflag} | grep "^d"'
+
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
 export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
 alias c='clear'
 alias gs='git status'
+alias or='openresty -p `pwd`/ -c conf/nginx.conf'
+
+source /usr/local/opt/autojump/etc/autojump.bash
 
 if rbenv --version >/dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
+
+md() {
+  if mount | grep reddit &> /dev/null
+  then
+    echo "reddit VM already mounted, not mounting."
+  else
+    echo "Mounting"
+    sshfs reddit.local: /Users/ajacksified/projects/reddit.local
+  fi
+}
+
+umd(){
+  if mount | grep reddit &> /dev/null
+  then
+    echo "Unmounting"
+    umount -f /Users/ajacksified/projects/reddit.local
+  else
+    echo "reddit VM not mounted, not unmounting."
+  fi
+}
 
 create_vm(){
   PROVIDER=''
@@ -96,10 +126,13 @@ create_vm(){
     PROVIDER='--provider=vmware_fusion'
   fi
 
+  echo 'get vagrant'
   wget https://raw.githubusercontent.com/ajacksified/dotfiles/vagrant/Vagrantfile
+
   vagrant up $PROVIDER
 
   DIRECTORY_NAME=${PWD##*/}
   vagrant ssh-config | sed "s/default/$DIRECTORY_NAME/" >> ~/.ssh/config
 }
 
+eval "$(rbenv init -)"
