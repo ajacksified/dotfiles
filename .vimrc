@@ -10,12 +10,14 @@ filetype indent plugin on
 "Remap F2 to NERDTreeToggle
 map <silent> <F2> :NERDTreeToggle<CR>
 
-syntax enable 
+let mapleader="\<space>"
+
+syntax enable
 
 set nobackup
 
 set hidden
-set number 
+set number
 set clipboard=unnamed
 set tabstop=2
 set shiftwidth=2
@@ -58,7 +60,6 @@ au BufRead,BufNewFile *.scss set filetype=scss
 au BufRead,BufNewFile *.*qn set filetype=fml
 au BufNewFile,BufRead *.es6 set filetype=javascript
 
-
 call pathogen#infect() 
 
 "Awesome stuff
@@ -71,8 +72,6 @@ au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 au InsertLeave * let &updatetime=updaterestore
 
 "awesome mappings
-map H ^
-map L $
 nnoremap ; :
 
 "Stupid f1 key"

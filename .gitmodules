@@ -49,3 +49,6 @@
 [submodule ".vim/bundle/python-syntax"]
 	path = .vim/bundle/python-syntax
 	url = https://github.com/hdima/python-syntax.git
+[submodule ".vim/bundle/vim-interestingwords"]
+	path = .vim/bundle/vim-interestingwords
+	url = https://github.com/vasconcelloslf/vim-interestingwords.git
