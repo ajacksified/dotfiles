@@ -13,12 +13,6 @@
 [submodule ".vim/bundle/vim-less"]
 	path = .vim/bundle/vim-less
 	url = https://github.com/groenewege/vim-less.git
-[submodule ".vim/bundle/vim-colors-solarized-brown"]
-	path = .vim/bundle/vim-colors-solarized-brown
-	url = https://github.com/ajacksified/vim-colors-solarized-brown.git
-[submodule ".vim/bundle/vim-colors-solarized"]
-	path = .vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -40,3 +34,6 @@
 [submodule ".vim/bundle/lightline.vim"]
 	path = .vim/bundle/lightline.vim
 	url = https://github.com/itchyny/lightline.vim.git
+[submodule ".vim/bundle/vim-gotham"]
+	path = .vim/bundle/vim-gotham
+	url = https://github.com/whatyouhide/vim-gotham.git
