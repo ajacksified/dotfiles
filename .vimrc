@@ -101,6 +101,6 @@ if strlen(git_settings)
   exe "set" git_settings
 endif
 
-let JSHintUpdateWriteOnly=1
+let g:syntastic_javascript_checkers = ['eslint']
 
 colorscheme gotham
