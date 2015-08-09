@@ -1,6 +1,6 @@
 ################################################################## SHELL OPTIONS
 
-SHELL=`brew --prefix`/bin/bash
+SHELL=/bin/bash
 set -o vi
 
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
@@ -95,7 +95,7 @@ function _git_prompt() {
       # Detached HEAD.  (branch=HEAD is a faster alternative.)
       branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null || echo HEAD`)"
     fi
-    echo -n " \[$RESET\]\e[0;37;$ansi;1m\]$branch\[$RESET\] "
+    echo -n " \[$RESET\]\e[0;37;$ansi;1m$branch\[$RESET\] "
   fi
 }
 
@@ -138,13 +138,8 @@ ta() {
 
 ########################################################### THE SOFTWARE SECTION
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  source `brew --prefix`/etc/bash_completion
-fi
-
-if [ -f /usr/local/opt/autojump/etc/autojump.bash ]; then
-  source /usr/local/opt/autojump/etc/autojump.bash
-fi
+source /usr/share/bash-completion/bash_completion
+source /usr/share/autojump/autojump.bash
 
 if rbenv --version >/dev/null 2>&1; then
   eval "$(rbenv init -)"
