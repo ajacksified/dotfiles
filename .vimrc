@@ -16,6 +16,7 @@ syntax enable
 
 set nobackup
 
+set nohlsearch
 set hidden
 set number
 set clipboard=unnamed

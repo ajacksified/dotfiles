@@ -6,7 +6,7 @@ set -o vi
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export NODE_PATH=/usr/local/lib/node_modules
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -22,6 +22,14 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 alias c='clear'
 alias gs='git status'
 
+# git fetch pr
+
+pr(){
+  echo $1
+  echo $2
+  echo $3
+  git fetch $1 pull/$2/head:$3
+}
 
 
 ####################################################################### PS1 TIME
@@ -110,7 +118,6 @@ PROMPT_COMMAND=_prompt_command
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 
-
 ############################################################ THE VAGRANT SECTION
 
 create_vm(){
@@ -130,22 +137,10 @@ create_vm(){
   vagrant ssh-config | sed "s/default/$DIRECTORY_NAME/" >> ~/.ssh/config
 }
 
-ta() {
-  tmux attach-session -t $1
-}
-
-
-
 ########################################################### THE SOFTWARE SECTION
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   source `brew --prefix`/etc/bash_completion
 fi
 
-if [ -f /usr/local/opt/autojump/etc/autojump.bash ]; then
-  source /usr/local/opt/autojump/etc/autojump.bash
-fi
-
-if rbenv --version >/dev/null 2>&1; then
-  eval "$(rbenv init -)"
-fi
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
