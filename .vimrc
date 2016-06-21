@@ -1,6 +1,9 @@
 "VIM compatibility
 set nocompatible
 
+"NVIM thing
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 "Pathogen Configuration
 filetype off
 call pathogen#helptags()
@@ -43,7 +46,7 @@ set nowrap
 " Path/File Expansion
 set wildmode=list:longest
 set wildmenu
-set wildignore=*.o,*.obj,*~,node_modules
+set wildignore=*.o,*.obj,*~,node_modules,bin
 
 " Status Line
 set ls=2
@@ -102,9 +105,9 @@ if strlen(git_settings)
 endif
 
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 colorscheme gotham
+
+let g:vim_markdown_folding_disabled = 1
