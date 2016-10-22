@@ -144,3 +144,23 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+[ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
+
+if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
+  export GPG_AGENT_INFO
+  export GPG_TTY=$(tty)
+else
+  eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+fi
+
+########################################################### THE TMUX SECTION
+alias tl='tmux list-sessions'
+
+ta(){
+  tmux attach-session -t $1
+}
+
+tk() {
+  tmux kill-session -t $1
+}

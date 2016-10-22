@@ -1,12 +1,6 @@
 [submodule ".vim/bundle/nerdtree"]
   path = .vim/bundle/nerdtree
   url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/tabular.vim"]
-  path = .vim/bundle/tabular.vim
-  url = https://github.com/godlygeek/tabular.git
-[submodule ".vim/bundle/mustache"]
-  path = .vim/bundle/mustache
-  url = https://github.com/juvenn/mustache.vim.git
 [submodule ".vim/bundle/ack-vim"]
 	path = .vim/bundle/ack-vim
 	url = https://github.com/mileszs/ack.vim.git
@@ -16,9 +10,6 @@
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/moonscript-vim"]
-	path = .vim/bundle/moonscript-vim
-	url = https://github.com/leafo/moonscript-vim.git
 [submodule ".vim/bundle/html5.vim"]
 	path = .vim/bundle/html5.vim
 	url = https://github.com/othree/html5.vim.git
@@ -46,15 +37,9 @@
 [submodule ".vim/bundle/python-syntax"]
 	path = .vim/bundle/python-syntax
 	url = https://github.com/hdima/python-syntax.git
-[submodule ".vim/bundle/vim-interestingwords"]
-	path = .vim/bundle/vim-interestingwords
-	url = https://github.com/vasconcelloslf/vim-interestingwords.git
 [submodule ".vim/bundle/vim-dispatch"]
 	path = .vim/bundle/vim-dispatch
 	url = git@github.com:tpope/vim-dispatch.git
-[submodule ".vim/bundle/omnisharp-vim"]
-	path = .vim/bundle/omnisharp-vim
-	url = git@github.com:OmniSharp/omnisharp-vim.git
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git

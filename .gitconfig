@@ -12,12 +12,12 @@
 [color]
   ui = true
 [user]
-	name = 
-	email = 
+  name = 
+  email = 
 [core]
-	editor = /usr/bin/vim
-	excludesfile = ~/.gitignore
+  editor = /usr/bin/vim
+  excludesfile = ~/.gitignore
 [github]
-	user = 
+  user = 
   token = 
 
