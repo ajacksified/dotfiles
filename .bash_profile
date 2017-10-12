@@ -164,3 +164,14 @@ ta(){
 tk() {
   tmux kill-session -t $1
 }
+
+eval "$(rbenv init -)"
+
+eval $(thefuck --alias)
+
+source $HOME/.cargo/env
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+function weather() { curl "http://wttr.in/$1";}
+function nv() { npm info $1 | grep version; }

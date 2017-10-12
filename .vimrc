@@ -10,6 +10,9 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype indent plugin on
 
+let &runtimepath.=',~/.vim/bundle/ale'
+filetype plugin on
+
 "Remap F2 to NERDTreeToggle
 map <silent> <F2> :NERDTreeToggle<CR>
 
@@ -29,7 +32,8 @@ set softtabstop=2
 set expandtab
 set showmatch
 set cul
-set cursorcolumn
+set nocursorcolumn
+set nocursorline
 set scrolloff=10
 set showcmd
 
@@ -76,7 +80,7 @@ au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 au InsertLeave * let &updatetime=updaterestore
 
 "awesome mappings
-nnoremap ; :
+"nnoremap ; :
 
 "Stupid f1 key"
 map <F1> <Esc>
@@ -88,7 +92,6 @@ set list listchars=tab:»·,trail:·
 set directory=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
 
 "let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-highlight CursorColumn ctermbg=Black
 
 " Use Ag over Grep if available
 if executable('ag')
@@ -99,15 +102,21 @@ if executable('ag')
   " let g:ctrlp_use_caching = 0
 endif
 
-let git_settings = system("git config --get vim.settings")
-if strlen(git_settings)
-  exe "set" git_settings
-endif
+"let git_settings = system("git config --get vim.settings")
+"if strlen(git_settings)
+"  exe "set" git_settings
+"endif
 
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_wq = 0
 
-colorscheme gotham
+colorscheme gotham256
 
 let g:vim_markdown_folding_disabled = 1
+let g:jsx_ext_required = 0
+
+let g:ale_python_flake8_executable = 'python3'
+let g:ale_python_flake8_options = '-m flake8'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
