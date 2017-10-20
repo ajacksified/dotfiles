@@ -1,9 +1,12 @@
 ################################################################## SHELL OPTIONS
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
-SHELL=`brew --prefix`/bin/bash
+if [ -f `brew --prefix`/bin/bash ]; then
+  SHELL=`brew --prefix`/bin/bash
+fi
+
 set -o vi
 
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export NODE_PATH=/usr/local/lib/node_modules
 
 export EDITOR='nvim'
@@ -145,14 +148,8 @@ fi
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
-[ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
+gpgconf --launch gpg-agent
 
-if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
-  export GPG_AGENT_INFO
-  export GPG_TTY=$(tty)
-else
-  eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
-fi
 
 ########################################################### THE TMUX SECTION
 alias tl='tmux list-sessions'
@@ -175,3 +172,13 @@ export NVM_DIR="$HOME/.nvm"
 
 function weather() { curl "http://wttr.in/$1";}
 function nv() { npm info $1 | grep version; }
+
+
+############################################################# THE FZF SECTION
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+if [ -f `brew --prefix`/bin/ag ]; then
+  export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
