@@ -92,7 +92,7 @@ export RESET
 
 function _git_prompt() {
   local git_status="`git status -unormal 2>&1`"
-  if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+  if ! [[ "$git_status" =~ not\ a\ git\ repo ]]; then
     if [[ "$git_status" =~ nothing\ to\ commit ]]; then
       local ansi=42
     elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
@@ -111,7 +111,7 @@ function _git_prompt() {
 }
 
 function _prompt_command() {
-  PS1="`_git_prompt`"'... your usual prompt goes here, e.g. \[\e[1;34m\]\w \$\[\e[0m\] '
+  # PS1="`_git_prompt`"'... your usual prompt goes here, e.g. \[\e[1;34m\]\w \$\[\e[0m\] '
   PS1="\n\[$BOLD$ORANGE\]\u\[$RESET\]\[$YELLOW\]@\H \[$BOLD$GREEN\]\w\[$PURPLE\]$(_git_prompt)\n\[$RESET$CYAN\][\T] \[$RESET\]\$ "
   export PS1
 }
@@ -182,3 +182,12 @@ if [ -f `brew --prefix`/bin/ag ]; then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
+
+######################################################## THE ARCANIST SECTION
+export PATH="$PATH:/Users/jlawson/projects/arcanist/arcanist/bin/"
+
+######################################################### THE PRINTER SECTION
+
+zplprint() {
+  lpr -P Zebra_Technologies_ZTC_ZP_450_200dpi -o raw $1
+}

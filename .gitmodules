@@ -47,5 +47,5 @@
 	path = .vim/bundle/vim-flake8
 	url = https://github.com/nvie/vim-flake8.git
 [submodule "vim/bundle/fzf.vim"]
-	path = vim/bundle/fzf.vim
+	path = .vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
