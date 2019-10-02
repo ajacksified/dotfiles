@@ -39,6 +39,8 @@ pr(){
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
   export TERM=gnome-256color
+ elif ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
+  export TERM=screen-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
   export TERM=xterm-256color
 fi
@@ -121,25 +123,6 @@ PROMPT_COMMAND=_prompt_command
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 
-############################################################ THE VAGRANT SECTION
-
-create_vm(){
-  PROVIDER=''
-
-  if vagrant plugin list | grep vmware &> /dev/null
-  then
-    PROVIDER='--provider=vmware_fusion'
-  fi
-
-  echo 'get vagrant'
-  wget https://raw.githubusercontent.com/ajacksified/dotfiles/vagrant/Vagrantfile
-
-  vagrant up $PROVIDER
-
-  DIRECTORY_NAME=${PWD##*/}
-  vagrant ssh-config | sed "s/default/$DIRECTORY_NAME/" >> ~/.ssh/config
-}
-
 ########################################################### THE SOFTWARE SECTION
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -162,18 +145,6 @@ tk() {
   tmux kill-session -t $1
 }
 
-eval "$(rbenv init -)"
-
-eval $(thefuck --alias)
-
-source $HOME/.cargo/env
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
-function weather() { curl "http://wttr.in/$1";}
-function nv() { npm info $1 | grep version; }
-
-
 ############################################################# THE FZF SECTION
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -182,12 +153,3 @@ if [ -f `brew --prefix`/bin/ag ]; then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
-
-######################################################## THE ARCANIST SECTION
-export PATH="$PATH:/Users/jlawson/projects/arcanist/arcanist/bin/"
-
-######################################################### THE PRINTER SECTION
-
-zplprint() {
-  lpr -P Zebra_Technologies_ZTC_ZP_450_200dpi -o raw $1
-}
