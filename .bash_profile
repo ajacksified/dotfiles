@@ -113,9 +113,9 @@ function _git_prompt() {
 }
 
 function _prompt_command() {
-  # PS1="`_git_prompt`"'... your usual prompt goes here, e.g. \[\e[1;34m\]\w \$\[\e[0m\] '
-  PS1="\n\[$BOLD$ORANGE\]\u\[$RESET\]\[$YELLOW\]@\H \[$BOLD$GREEN\]\w\[$PURPLE\]$(_git_prompt)\n\[$RESET$CYAN\][\T] \[$RESET\]\$ "
-  export PS1
+   PS1="`_git_prompt`"'... your usual prompt goes here, e.g. \[\e[1;34m\]\w \$\[\e[0m\] '
+   PS1="\[$RESET$CYAN\][\T] \[$BOLD$ORANGE\]\u\[$RESET\]\[$YELLOW\]@\H \[$BOLD$GREEN\]\w\[$PURPLE\]$(_git_prompt)\[$RESET\]\$ "
+   export PS1
 }
 
 PROMPT_COMMAND=_prompt_command
@@ -132,6 +132,13 @@ fi
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 gpgconf --launch gpg-agent
+
+export GPG_TTY=$(tty)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 
 
 ########################################################### THE TMUX SECTION
@@ -153,3 +160,11 @@ if [ -f `brew --prefix`/bin/ag ]; then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+
+########################################################### THE UTILS SECTION
+devvm() {
+  ssh -A -J jlawson@admin.dev.easypo.net vagrant@dev.jlawson.devvm.easypo.net.
+}
