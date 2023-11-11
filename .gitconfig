@@ -14,10 +14,9 @@
 [user]
   name = 
   email = 
+	signingkey = 
 [core]
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore
-[github]
-  user = 
-  token = 
-
+[commit]
+	gpgsign = true
