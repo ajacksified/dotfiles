@@ -10,13 +10,20 @@
   pushom = push origin master
   pullom = pull origin master
 [color]
-  ui = true
-[user]
-  name = 
-  email = 
-	signingkey = 
+  ui = auto
 [core]
-  editor = /usr/bin/vim
+  # editor comes from $EDITOR (nvim, or vim if nvim isn't installed)
   excludesfile = ~/.gitignore
-[commit]
-	gpgsign = true
+[init]
+  defaultBranch = main
+[push]
+  autoSetupRemote = true
+[fetch]
+  prune = true
+[diff]
+  algorithm = histogram
+
+# Name, email, and signing live in ~/.gitconfig.local (created by link.sh,
+# never committed). Keep this last so local settings win.
+[include]
+  path = ~/.gitconfig.local
