@@ -1,0 +1,57 @@
+# Alacritty (0.13+ reads TOML; the old .alacritty.yml is no longer supported)
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+dimensions = { columns = 80, lines = 24 }
+padding = { x = 8, y = 8 }
+
+[font]
+size = 13.0
+normal = { family = "Source Code Pro" }
+bold = { family = "Source Code Pro" }
+italic = { family = "Source Code Pro" }
+offset = { x = 0, y = 0 }
+glyph_offset = { x = 0, y = 0 }
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.primary]
+background = "#000000"
+foreground = "#eaeaea"
+
+[colors.cursor]
+text = "#000000"
+cursor = "#ffffff"
+
+[colors.normal]
+black = "#0a0f14"
+red = "#c23127"
+green = "#2aa889"
+yellow = "#edb442"
+blue = "#195466"
+magenta = "#4e5166"
+cyan = "#33859e"
+white = "#99d1ce"
+
+[colors.bright]
+black = "#80807f"
+red = "#d26936"
+green = "#081f2d"
+yellow = "#245361"
+blue = "#093749"
+magenta = "#888ca6"
+cyan = "#599cab"
+white = "#d3ebe9"
+
+[colors.dim]
+black = "#333333"
+red = "#f2777a"
+green = "#99cc99"
+yellow = "#ffcc66"
+blue = "#6699cc"
+magenta = "#cc99cc"
+cyan = "#66cccc"
+white = "#dddddd"

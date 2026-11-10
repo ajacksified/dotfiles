@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# clip — copy stdin to the clipboard, wherever you are.
+#   macOS: pbcopy · Wayland: wl-copy · X11: xclip/xsel
+#   over SSH: tmux's clipboard (inside tmux) or an OSC 52 escape to your terminal
+# Usage: echo hi | clip
+set -euo pipefail
+
+have() { command -v "$1" >/dev/null 2>&1; }
+
+if [ "$(uname -s)" = Darwin ] && have pbcopy; then
+  exec pbcopy
+elif [ -n "${WAYLAND_DISPLAY:-}" ] && have wl-copy; then
+  exec wl-copy
+elif [ -n "${DISPLAY:-}" ] && have xclip; then
+  exec xclip -selection clipboard
+elif [ -n "${DISPLAY:-}" ] && have xsel; then
+  exec xsel --clipboard --input
+elif [ -n "${TMUX:-}" ] && have tmux; then
+  exec tmux load-buffer -w -          # -w also sets the outer terminal's clipboard
+else
+  # OSC 52: ask the terminal emulator to set its clipboard (works over SSH).
+  data=$(base64 | tr -d '\n')
+  ( exec 2>/dev/null; printf '\033]52;c;%s\a' "$data" > /dev/tty ) || true
+fi
